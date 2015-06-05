@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.18)  15 MAY 2015 20:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.5.16)  5 JUN 2015 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **CV__Emerson_A_Azarbakht__OregonState.tex
 (./CV__Emerson_A_Azarbakht__OregonState.tex
 LaTeX2e <2011/06/27>
-Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+Babel <3.9h> and hyphenation patterns for 4 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
@@ -249,7 +249,7 @@ Package hyperref Info: Bookmarks ON on input line 4688.
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen123
@@ -390,59 +390,64 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 345.
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
 [][]\OT1/cmr/m/n/10 azarbaam@eecs.oregonstate.edu[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
-[][]\OT1/cmr/m/n/10 https://linkedin.com/in/azarbakht[][]
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[][]\OT1/cmr/m/n/10 http://github.com/azarbakht[][]
  []
 
 
-Overfull \hbox (180.67499pt too wide) in paragraph at lines 369--370
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[][]\OT1/cmr/m/n/10 http://linkedin.com/in/azarbakht[][]
+ []
+
+
+Overfull \hbox (180.67499pt too wide) in paragraph at lines 371--372
 []$[]$| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 384--393
+Underfull \hbox (badness 10000) in paragraph at lines 386--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--401
+Underfull \hbox (badness 10000) in paragraph at lines 398--403
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 404--407
+Underfull \hbox (badness 10000) in paragraph at lines 406--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 408--411
+Underfull \hbox (badness 10000) in paragraph at lines 410--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--428
+Underfull \hbox (badness 10000) in paragraph at lines 425--430
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--432
+Underfull \hbox (badness 10000) in paragraph at lines 431--434
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 438.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 440.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 438.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 440.
 
-Overfull \hbox (3.54851pt too wide) in paragraph at lines 446--447
+Overfull \hbox (3.54851pt too wide) in paragraph at lines 448--449
 []\OT1/cmr/m/n/10 Davidson, J, R. Naik, A. Man-nan, A. Azarbakht, C. Jensen, ``
 In-ves-ti-gat-ing Older Adults' Ex-pe-ri-ences
  []
@@ -452,24 +457,24 @@ AED: lastpage setting LastPage
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 743.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 743.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 745.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 745.
 
 (./CV__Emerson_A_Azarbakht__OregonState.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 743.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 743.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 745.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 745.
 Package rerunfilecheck Info: File `CV__Emerson_A_Azarbakht__OregonState.out' ha
 s not changed.
-(rerunfilecheck)             Checksum: AF15FA89090B859324EB1673C2A61605;461.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 743.
+(rerunfilecheck)             Checksum: E8307CA5135DDE313017A14735B77BDF;414.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 745.
  ) 
 Here is how much of TeX's memory you used:
- 6382 strings out of 493307
- 93487 string characters out of 6139905
- 205875 words of memory out of 5000000
- 9803 multiletter control sequences out of 15000+600000
+ 6379 strings out of 494985
+ 93455 string characters out of 6180356
+ 201997 words of memory out of 5000000
+ 9562 multiletter control sequences out of 15000+600000
  5200 words of font info for 19 fonts, out of 8000000 for 9000
- 957 hyphenation exceptions out of 8191
+ 36 hyphenation exceptions out of 8191
  29i,11n,43p,517b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -478,11 +483,11 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti10.pfb>
-Output written on CV__Emerson_A_Azarbakht__OregonState.pdf (1 page, 103513 byte
+Output written on CV__Emerson_A_Azarbakht__OregonState.pdf (1 page, 104142 byte
 s).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 82 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 
