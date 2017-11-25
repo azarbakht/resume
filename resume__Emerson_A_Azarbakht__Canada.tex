@@ -1,0 +1,804 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you are getting compilation errors referring to list      %%
+%%       definitions that don't match, you may need to upgrade to a   %%
+%%       newer version of the enumitem package. Try going to:         %%
+%%                                                                    %%
+%%   http://www.ctan.org/tex-archive/macros/latex/contrib/enumitem    %%
+%%                                                                    %%
+%%       then download the enumitem.sty file from there. Place it in  %%
+%%       the same directory as your CV. So long as there are no other %%
+%%       conflicts with older packages on your system, hopefully that %%
+%%       will fix your compilation problems.                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+
+% The automated optical recognition software used to digitize resume
+% information works best with fonts that do not have serifs. This
+% command uses a sans serif font throughout. Uncomment both lines (or at
+% least the second) to restore a Roman font (i.e., a font with serifs).
+%\usepackage{times}
+%\renewcommand{\familydefault}{\sfdefault}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{xcolor}
+\usepackage{multicol}
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+%\usepackage[paper=letterpaper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=1.1in,     % Length of section titles
+%            marginparsep=.05in,       % Space between titles and text
+%            margin=0.6in,               % 1 inch margins
+%            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+\usepackage[paper=a4paper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=28mm,    % Length of section titles
+            marginparsep=1.5mm,       % Space between titles and text
+            margin=12mm,              % 25mm margins
+            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+% Simpler bibsections for CV sections
+% (thanks to natbib for inspiration)
+%
+% * For lists of references with hanging indents and no numbers:
+%
+%   \begin{bibsection}
+%       \item ...
+%   \end{bibsection}
+%
+% * For numbered lists of references (with hanging indents):
+%
+%   \begin{bibenum}
+%       \item ...
+%   \end{bibenum}
+%
+%   Note that bibenum numbers continuously throughout. To reset the
+%   counter, use
+%
+%   \restartlist{bibenum}
+%
+%   at the place where you want the numbering to reset.
+
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newlist{bibsection}{itemize}{3}
+\setlist[bibsection]{label=,leftmargin=\bibhang}
+\newlist{bibenum}{enumerate}{3}
+\setlist[bibenum]{resume,label=[\arabic*],leftmargin={\bibhang+\widthof{[999]}}}
+\setlist*[bibsection,bibenum]{%
+        itemindent=-\bibhang,
+        itemsep=\bibsep,parsep=\z@,partopsep=0pt,
+        topsep=0pt}
+\let\oldendbibenum\endbibenum
+\def\endbibenum{\oldendbibenum\vspace{-.6\baselineskip}}
+\let\oldendbibsection\endbibsection
+\def\endbibsection{\oldendbibsection\vspace{-.6\baselineskip}}
+\makeatother
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% HEADING AT TOP OF CURRICULUM VITAE
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\Large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+%%% SECTION HEADINGS
+
+% The section headings. Flush left in small caps down pseudo-margin.
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+%%% LISTS
+% This macro alters a list by removing some of the space that follows the list
+% (is used by lists below)
+\newcommand*\fixendlist[1]{%
+    \expandafter\let\csname preFixEndListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixEndListend#1\endcsname\vspace{-0.6\baselineskip}}}
+
+% These macros help ensure that items in outer-type lists do not get
+% separated from the next line by a page break
+% (they are used by lists below)
+\let\originalItem\item
+\newcommand*\fixouterlist[1]{%
+    \expandafter\let\csname preFixOuterList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\csname preFixOuterList#1\endcsname\let\oldItem\item\def\item{\pagebreak[2]\oldItem}}
+    \expandafter\let\csname preFixOuterListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\let\item\oldItem\csname preFixOuterListend#1\endcsname}}
+\newcommand*\fixinnerlist[1]{%
+    \expandafter\let\csname preFixInnerList#1\expandafter\endcsname\csname #1\endcsname
+    \expandafter\def\csname #1\endcsname{\let\oldItem\item\let\item\originalItem\csname preFixInnerList#1\endcsname}
+    \expandafter\let\csname preFixInnerListend#1\expandafter\endcsname\csname end#1\endcsname
+    \expandafter\def\csname end#1\endcsname{\csname preFixInnerListend#1\endcsname\let\item\oldItem}}
+
+% An itemize-style list with lots of space between items
+%
+% Usage:
+%   \begin{outerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{outerlist}
+\newlist{outerlist}{itemize}{3}
+    \setlist[outerlist]{label=\enskip\textbullet,leftmargin=*}
+    \fixendlist{outerlist}
+    \fixouterlist{outerlist}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{lonelist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{lonelist}
+\newlist{lonelist}{itemize}{3}
+    \setlist[lonelist]{label=\enskip\textbullet,leftmargin=*,partopsep=0pt,topsep=0pt}
+    \fixendlist{lonelist}
+    \fixouterlist{lonelist}
+    
+    
+
+% An itemize-style list with little space between items
+%
+% Usage:
+%   \begin{innerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{innerlist}
+\newlist{innerlist}{itemize}{3}
+    \setlist[innerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixinnerlist{innerlist}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+%
+% Usage:
+%   \begin{loneinnerlist}
+%       \item ...    % (or \item[] for no bullet)
+%   \end{loneinnerlist}
+\newlist{loneinnerlist}{itemize}{3}
+    \setlist[loneinnerlist]{label=\enskip\textbullet,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt}
+    \fixendlist{loneinnerlist}
+    \fixinnerlist{loneinnerlist}
+
+%%% EXTRA SPACE
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+%%% FORMATTING MACROS
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Emerson A. Azarbakht}
+
+%\begin{flushright}
+%\textbf{(347) 276-0790 \\
+%\textbf{\email{azarbaam@eecs.oregonstate.edu}\\}
+%}\href{http://www.azarbakht.info/} {www.azarbakht.info}
+%\end{flushright}
+
+\section{Contact Info}
+
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table. Table is one row made up of three parboxes. The left
+%       parbox has address info, the middle parbox has a vertical bar,
+%       and the right parbox has phone and electronic contact
+%       information.
+%
+% MACROS: \rcollength is the width of the right column of the table
+%             (adjust it to your liking; default is 1.85in).
+%         \spacewidth is width of area between left and right boxes.
+%         \spacechar is character used to produce perforated vertical
+%             boundary between boxes.
+%
+\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+\newlength{\spacewidth}\setlength{\spacewidth}{20pt}
+\newcommand\spacechar{$|$}
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}%
+
+% Address box
+%\parbox{\textwidth-\rcollength-\spacewidth}{%
+%1148 Kelley Engineering Center\\	
+%\href{http://www.oregonstate.edu/}{Oregon State University}\\
+%Corvallis, OR  97331 USA}
+%\parbox{\textwidth-\rcollength-\spacewidth}{%
+\parbox{\textwidth}{%
+(347) 276-0790 \hfill Toronto, Canada\\
+\email{emerson.azarbakht@gmail.com} \hfill {\footnotesize Canadian Permanent Resident}\\
+\href{http://linkedin.com/in/azarbakht} {Linkedin.com/in/azarbakht}\\
+\href{http://github.com/azarbakht}
+{Github.com/azarbakht}
+}
+
+% Cheesy perforated vertical bar between boxes
+% Shorten by removing \spacechar's
+%& \parbox{\spacewidth}{\spacechar\\\spacechar\\\spacechar\\\spacechar\\\spacechar} &
+
+% Non-snail-mail contact information
+%& \parbox{\rcollength+\spacewidth}
+%{%
+%\begin{flushright}
+%San Francisco, CA  94134
+%%3048 Kelley Engineering Center\\
+%%Corvallis, Oregon  97330\\
+%\end{flushright}
+%}
+
+\end{tabular}
+\hrule
+
+
+\section{Specialty}
+\textbf{Data Scientist skilled in Statistics \& Machine Learning}\\
+\hrule
+
+%\section{\footnotesize{Nationality}}
+%{\small Canadian Permanent Resident}\\
+%\hrule
+
+\section{\normalsize{Skills}}
+\normalsize
+Programming languages: \textbf{Python, Java,  R, \textsc{Matlab}, C, C++, Bash}\\
+Statistical Analysis: \textbf{R}\\
+Databases: \textbf{MySQL, Neo4j, SQL, Cypher, Hive}\\
+Data visualization tools: \textbf{D3.js, ggplot2}\\
+Data Munging tools: \textbf{sed, awk, OpenRefine, Trifecta/Data Wrangler, R data.table, R dplyr} \\
+Tools: \textbf{Git, Knitr, Shiny, Markdown, Linux, Hadoop, IPython, NumPy, Pandas, Matplotlib, Scikit-Learn}\\
+% add: Apache Spark, TensorFlow
+\hrule 
+
+\section{\normalsize{Education}}
+\normalsize
+		\textbf{Ph.D., Computer Science}, \href{http://www.oregonstate.edu/}{\textit{Oregon State University}}, USA    	\hfill \textit{2011-2017\\}
+%		\href{http://www.oregonstate.edu/}{\textit{Oregon State University}}\\
+\textit{Longitudinal analysis \& statistical modeling of collaboration graphs of software development}\\
+		\textbf{M.S., Computer Science}, \href{http://www.chalmers.se/en/}{\textit{Chalmers University of Technology}}, Sweden     	\hfill \textit{2009-2011\\}
+		%\href{http://www.chalmers.se/en/}{\textit{Chalmers University of Technology}}, Sweden\\
+% M.S. Thesis: An Evolutionary Algorithm for Computer-Generated Music Ranking\\
+% | M.S. Advisors: Prof. Palle Dahlstedt \& Prof. Claes Strannegard\\
+    	\textbf{B.S., Computer Science}, \textit{Azad University of Tehran}    	\hfill \textit{2004-2008\\}
+%		\textit{Azad University of Tehran}, Iran\\
+\hrule
+
+%\section{\normalsize{Skills}}
+%\normalsize
+%Programming: \textbf{Java {\scriptsize(expert)}, Python {\scriptsize(proficient)}, R {\scriptsize(expert)}, \textsc{MATLAB} {\scriptsize(expert)}, C {\scriptsize(proficient)}, C++ {\scriptsize(prior experience)}, Bash {\scriptsize(prior experience)}}\\
+%Statistical Analysis: \textbf{R {\scriptsize(expert)}}\\
+%Database: \textbf{MySQL, Hive, Neo4j}\\
+%Tools: \textbf{Git, Hadoop, Gephi, Univa Grid Engine, Linux}\\
+%\hrule
+
+\section{Experience}
+\href{http://eecs.oregonstate.edu/people/azarbakht} {\textbf{Data Science Research Assistant},} \textit{School of Computer Science, Oregon State University}\\ 
+\href{http://eecs.oregonstate.edu/research/research-areas/software-engineering-hci-programming-languages}{\textit{Software Engineering, Usability \& Programming Languages Lab}}\hfill \textit{2011-2017} \\
+Developed statistical models for changing social networks. {\small (Think how \textit{your} \href{http://linkedin.com/in/azarbakht}{LinkedIn} network has changed over time \& what that says about you \& your workplaces.)}\\
+
+\textbf{Instructor,} \textit{School of Computer Science, Oregon State University}\\
+\href{http://classes.engr.oregonstate.edu/eecs/spring2016/cs352/}{\textit{Open Source Software Development {\scriptsize (CS 464)}}}\hfill \textit{2017}\\ 
+\href{http://classes.engr.oregonstate.edu/eecs/spring2016/cs352/}{\textit{User Experience Design {\scriptsize (CS 352)}}}\hfill \textit{2014-2016}\\ 
+Helped 1,070 post-baccalaureate students switch careers and get CS jobs. \\
+Developed a CS course for the OSU Online CS program. (Ranked \#7 in the United States)\\
+Brought 1.9 million dollars revenue to the department.\\
+
+\textbf{Graduate Teaching Assistant,} \textit{School of Computer Science, Oregon State University} \\
+\href{http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode=CS&coursenumber=261}{\textit{Data Structures {\scriptsize (CS 261)}}}\hfill \textit{2012-2014}
+
+Helped 500+ students debug C programs. Wrote Bash shell scripts to automate compilation, execution and grading
+
+\hrule
+\section{Projects}
+
+\href{https://github.com/azarbakht/prelim/raw/master/report.pdf}{\textbf{A Statistical Approach for Modeling Longitudinal Change in Social Networks}} \hfill \textit{2014-2017}\newline
+Developed a comparative approach to quantify social dynamics, found a well-fitting statistcal model of covariates for longitudinal changes in social graphs of software development
+
+\href{https://github.com/azarbakht/ML_Project}{\textbf{A Machine Learning Approach for Taming Compiler Fuzzers}} \hfill \textit{2014}\newline
+Developed a comparative cluster-ensemble approach to tame compiler fuzzers, improved state-of-the-art, as our approach found more unique bugs than the state-of-the-art.
+
+\href{http://azarbakht.info/augmentedmirror/indexce51.html?/amir/}{\textbf{An Augmented Reality Mirror: aMir}} \hfill \textit{2010}\newline
+Developed a prototype of a augmented mirror to practice interaction design by doing. The project combined technical knowledge with design thinking.
+
+%\textbf{Android App: Corvallis} \hfill \textit{2013}\newline
+%Developed an android app called “Corvallis” for the city of Corvallis. The purpose of the project was to practice mobile software development, as well as to create a means to keep track of the events.\\
+
+
+% accomplished X by implementing Y which led to Z
+%{\small I helped 320 post-baccalaureate students learn User Interface and UX design, to switch into CS careers. \\I maintained lectures, designed student engagement strategies, and supervised over 8 graduate teaching assistants. My teaching was ranked as exceptional (5.4/6), higher than the department average.}
+
+%\textbf{Research Assistant} \hfill \textbf{Computer Graphics, Visualization, and Vision Lab}\\
+%School of Computer Science, Oregon State University \hfill \textit{2011 - 2012}\\
+%\textit{Research on activity recognition in videos}\\
+
+
+\hrule
+% accomplished X by implementing Y which led to Z
+%{\small I helped CS major sophomores learn C programming, by teaching recitations and helping them debug C code. I graded 2300 C programs, wrote shell scripts to automate compilation and runtime, and provided individual feedback to students on how to debug and fix C code.}
+
+\section{Publications}
+\begin{loneinnerlist}
+\scriptsize
+{
+\item Azarbakht, E. A., ``Longitudinal Analysis of Collaboration Graphs of Forked Open Source Software Development Projects Using An Actor-oriented Social Network Analysis,'' \textit{Proc. Int'l. Net. for Social Net. Analysis conf.}, 2016.
+
+\item Azarbakht, E. A., ``Longitudinal Analysis of Collaboration Graphs of Forked Open Source Software Development Projects,'' \textit{Proc. 12th Int'l. Conf. Open Source Systems Doct. Cons.}, 2016.
+
+\item Azarbakht, A. and C. Jensen, ``Drawing the Big Picture: Temporal Visualization of Dynamic Collaboration Graphs of OSS Software Forks,'' \textit{Proc. 10th Int'l. Conf. Open Source Systems}, 2014.
+
+\item Azarbakht, A. and C. Jensen, ``Temporal Visualization of Dynamic Collaboration Graphs of OSS Software Forks,'' \textit{Proc. Int'l. Network for Social Network Analysis Sunbelt conf.}, 2014.
+
+\item Davidson, J, R. Naik, A. Mannan, A. Azarbakht, C. Jensen, ``Investigating Older Adults' Experiences with Contributing to Free/Open Source Software,'' \textit{Proc. IEEE Symp. Visual Languages and Human-Centric Computing}, 2014.
+
+\item Azarbakht, A., ``Temporal Visualization of Collaborative Software Development in FOSS Forks,'' \textit{Proc. IEEE Symp. Visual Languages and Human-Centric Computing}, 2014.
+
+\item Azarbakht, A., ``Drawing the Big Picture: Analyzing FLOSS Collaboration with Temporal Social Network Analysis,'' \textit{Proc. 9th Int'l. Symp. Open Collaboration}, 2013.
+
+\item Azarbakht, A. and C. Jensen, ``Analyzing FOSS Collaboration \& Social Dynamics with Temporal Social Networks,'' \textit{Proc. 9th Int'l. Conf. Open Source Systems Doct. Cons.}, 2013.
+}
+\end{loneinnerlist}
+
+\section{Graduate Courses}
+\hrule
+\begin{multicols}{2}
+\begin{innerlist}
+\item Machine Learning
+\item Time Series Analysis
+\item Statistical Methods of Data Analysis
+\item Theory of Statistics I \& II
+\item Stochastic Optimization
+%\item Computer Vision
+\item Artificial Intelligence
+%\item HCI meets Software Development: The Case Study (CS569)
+\item Algorithms \& Data Structures
+%\item Open Source Software Development (CS519)
+\item Mobile \& Cloud Software Development
+%\item Unix Internals: FreeBSD Operating System
+%\item Ubiquitous Computing 
+%\item Qualitative \& Quantitative Research Methods
+\end{innerlist}
+\end{multicols}
+
+%\section{References} 
+%Available upon request
+
+%\section{Volunteer Service}
+%Department Steward for the American Federation of Teachers (AFT-Local 6069) \hfill \textit{(2012, 2013, 2014)}\\
+
+
+%\section{References}
+%Available upon request
+
+%
+%\section{\textsc{Activities}}
+%\begin{innerlist}
+%\item Tennis
+%\item Salsa dancing
+%\end{innerlist}
+
+%\section{Academic Appointment}
+%		\textbf{Research Assistantship}\\
+%		\textit{Oregon State University, Computer vision lab}
+%    	\hfill \textit{September~2011 to present}\\
+%    	Tracking interest points in images and videos, Video segmentation, Classification, Clustering, Support vector machines, Pedestrian detection, Activity recognition in videos, 
+%	
+% The ``More Info'' section may not be necessary; make sure it's short
+% so it doesn't prevent people from seeing references available to
+% contact.
+
+%\section{Languages}
+%\begin{innerlist}
+%\item \textsc{English}
+%\item \textsc{Persian}
+%\item \textsc{French} (Intermediate)
+%\item \textsc{Swedish} (Elementary)
+%
+%\end{innerlist}
+
+%\section{Certifications}
+%\begin{innerlist}
+%\item IELTS
+%\hfill \textit{Gothenburg, Sweden, September~2009}\\
+%\textit{Scores: Listening 8, Speaking 7.5, Reading 7.5, Writing 7, Overall 7.5}
+%
+%\item GRE
+%    	\hfill \textit{Stockholm, Sweden, October~2009}\\
+%\textit{Verbal reasoning  390, Quantitative reasoning  790, Analytical Writing  3.5}
+%
+%\item T\'{E}F (Test d'\'{E}valuation de Fran{\c c}ais)
+%    	\hfill \textit{Stockholm, Sweden, May~2011}\\
+%\textsc{from Chambre de commerce et d'industrie de Paris}
+%
+%\textit{Compréhension orale 141, Compréhension écrite 97, Lexique et Structure 72}
+%
+%\item A1 level certificate in Swedish language
+%    	\hfill \textit{Gothenburg, Sweden, June~2011}\\
+%\textsc{from University of Gothenburg}
+%\end{innerlist}
+
+
+
+%\textbf{Science and Research Methodology}
+%Qualitative \& Quantitative research methods: Conducting Interview, Survey, Case Study, Experiment. Usability evaluation \& User testing, and scientific paper writing. I conducted two in-depth interviews; one semi-structured interview; a 16-hour observational study; four user testings; one heuristic evaluation; transcribed 12 pages of interview records; and wrote three ACM standard papers.\\
+%
+%Artificial Intelligence I
+%Classical AI theory \& methods, Intelligent Agents, Heuristic Search
+%
+%Artificial Intelligence II (biologically-inspired stochastic optimization methods)
+%
+%Evolutionary Algorithms (EAs); Ant Colony Optimization (ACO); Particle Swarm Optimization (PSO); Artificial Neural Networks (ANNs).
+%    I implemented a Genetic Algorithm(GA), a PSO, and an ACO to solve the NP-hard Traveling Salesman Problem (TSP) in MATLAB
+%
+%Physical Computing at Interaction Design Collegium
+%Designing \& building prototypes of computational nature, using Arduino, sensors, actuators and smart material, e.g. wearable fabrics. Projects: iFlute,  Compose:Me,  Power-Sleeve for Tetris
+%
+%Ubiquitous Computing at Interaction Design Collegium
+%Designing and developing a working prototype of an interactive embedded computer system using novel interface components -- within a budget of 1500 SEK. We developed an interactive augmented mirror, called aMir
+%
+%Unix Internals
+%The design and implementation of the FreeBSD operating system core: kernel; processes; virtual memory; I/O system; local filesystems; devices; NFS; terminal handling; sockets; network communication; network protocols; startup
+%
+%Theory of Statistics I (ST561)
+%Notions of probability; expectations of functions of random variables; expectation and variance; moments and moment generating functions; multivariate random variables; joint, marginal and conditional distributions; sampling distributions; convolution; stochastic convergence; order statistics
+%
+%Theory of Statistics II (ST562)
+%Sufficiency; completeness; ancillary; exponential families; location and scale families; point estimation: maximum likelihood, Bayes and unbiased estimators
+%
+%Numerical Linear Algebra (MTH551)
+%Direct and iterative methods for solving linear systems; least square solution of overdetermined systems; eigenvalues and eigenvectors
+%
+%Algorithms \& Data Structures (CS515)
+%Divide and conquer; greedy algorithms; matroids; dynamic programming; randomized algorithms; randomized min-cut; network flow; linear programming
+%
+%Computer Vision (CS556)
+%Image features and descriptors; feature extraction; Hungarian algorithm; color; edges; shape descriptors; shape matching; dynamic time warping; perceptual grouping and Gestalt laws; image segmentation; normalized cut; mean-shift; matching: typical formulations; matching as convex optimization; imaging process; geometric primitives; 2D and 3D transformations; projections; epipolar geometry; calibration; 2D homography; object detection; bag-of-words; tracking; clustering
+%
+%Open Source Software Development (CS519)
+%History of Free and Open Source Software; licensing and intellectual property; ethics and etiquette; challenges and limitations; real hands-on experience
+%
+%Mobile \& Cloud Software Development (CS569)
+%iPhone and Android app development with focus on performance; usability; reliability; security; efficient storage of replicated data on the cloud; reliable synchronization of offline data; mobile-optimized user interfaces (UI); I developed a mobile app for Android OS called Corvallis, available on the Google Android market (here)
+%\begin{innerlist}
+%\item Qualitative \& Quantitative research methods
+%\item Open Source Software Development (CS519)
+%\item Artificial Intelligence I
+%\item Artificial Intelligence II (Stochastic Optimization)
+%\item Ubiquitous Computing
+%\item Physical Computing
+%\item Unix Internals
+%\item Theory of Statistics I (ST561)
+%\item Theory of Statistics II (ST562)
+%\item Numerical Linear Algebra (MTH551)
+%\item Algorithms \& Data Structures (CS515)
+%\item Computer Vision (CS556)
+%\item Mobile \& Cloud Software Development (CS569)
+%\end{innerlist}
+
+
+%
+%\textbf{Stochastic optimization}
+%Evolutionary Algorithms (EAs); Ant Colony Optimization (ACO); Particle Swarm Optimization (PSO); Artificial Neural Networks (ANNs).
+%\textit{I implemented a Genetic Algorithm(GA), a Particle Swarm Optimization (PSO), and an (Ant Colony Optimization)ACO to solve the NP-hard Traveling Salesman Problem (TSP) in MATLAB.}\\
+%
+%\textbf{Computer Vision}
+%Extracting image features (Harris affine corners, Hessian regions, SURF \& MSER detectors); SIFT descriptors; Matching using Hungarian algorithm; Shape descriptors (shape-context \& beam-angle); Image segmentation using normalized cuts, Video Segmentation using normalized cut \& Nystrom method.\\
+%
+%\textbf{HCI: Physical Computing}
+%Designing \& building prototypes of computational nature, using Arduino, sensors, actuators and smart material, e. g. wearable fabrics. Projects: \href{http://chalmersphyscomp09.wordpress.com/2009/09/20/iflute/}{iFlute}, \href{http://chalmersphyscomp09.wordpress.com/2009/10/17/composeme/}{Compose:Me}, \href{http://chalmersphyscomp09.wordpress.com/2009/10/13/the-power-sleeve-for-tetris/}{Power-Sleeve for Tetris}.\\
+%
+%\textbf{HCI: Ubiquitous Computing}
+%Designing and developing a working prototype of an interactive embedded computer system using novel interface components -- within a budget of 1500 SEK.
+%We developed an interactive augmented mirror, called \href{http://www.azarbakht.info/augmentedmirror/}{aMir}.\\ 
+%See here: \url{http://www.azarbakht.info/augmentedmirror/}.\\
+
+%\section{Scholarships}
+%	The Adlerbert Scholarship Foundation
+%	\hfill \textit{Gothenburg, Sweden, 2010}
+
+%\section{Volunteer Work}
+%\begin{innerlist}
+%\item Orientation leader for 20+ exchange \& international students.
+%\hfill \textit{Chalmers University's International Reception Committee. Sweden, 2011}
+%\item Three-times Elected Steward for the Coalition of Graduate Employees (CGE).
+%\hfill \textit{2012, 2013, 2014}
+%
+%			        
+%\end{innerlist}
+
+%\section{Memberships}
+%\begin{innerlist}
+%\item \textsc{Association for Computing Machinery (ACM)}
+%\item \textsc{American Federation of Teachers (AFT)}
+%\item Rumbanana Cuban Casino Salsa Team (I dance salsa)
+%\item OSU Tennis Club
+%
+%\end{innerlist}
+
+%\section{Contact Information}
+%
+%% NOTE: Mind where the & separators and \\ breaks are in the following
+%%       table. Table is one row made up of three parboxes. The left
+%%       parbox has address info, the middle parbox has a vertical bar,
+%%       and the right parbox has phone and electronic contact
+%%       information.
+%%
+%% MACROS: \rcollength is the width of the right column of the table
+%%             (adjust it to your liking; default is 1.85in).
+%%         \spacewidth is width of area between left and right boxes.
+%%         \spacechar is character used to produce perforated vertical
+%%             boundary between boxes.
+%%
+%\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+%\newlength{\spacewidth}\setlength{\spacewidth}{20pt}
+%\newcommand\spacechar{$|$}
+%%
+%\begin{tabular}[t]{@{}p{\textwidth-\rcollength-\spacewidth}@{}p{\spacewidth}@{}p{\rcollength}}%
+%
+%% Address box
+%%\parbox{\textwidth-\rcollength-\spacewidth}{%
+%%1148 Kelley Engineering Center\\	
+%%\href{http://www.oregonstate.edu/}{Oregon State University}\\
+%%Corvallis, OR  97331 USA}
+%\parbox{\textwidth-\rcollength-\spacewidth}{%
+%1148 Kelley Engineering Center\\	
+%Corvallis, OR  97331\\
+%%U.S.A.\\
+%}
+%
+%% Cheesy perforated vertical bar between boxes
+%% Shorten by removing \spacechar's
+%%& \parbox{\spacewidth}{\spacechar\\\spacechar\\\spacechar\\\spacechar\\\spacechar} &
+%
+%% Non-snail-mail contact information
+%& \parbox{\rcollength}{%
+%\textit{Mobile:} (347) 276-0790 \\
+%\textit{E-mail:} \email{azarbaam@eecs.oregonstate.edu}\\
+%\textit{Webpage:} 
+%\href{http://eecs.oregonstate.edu/~azarbaam/} {http://eecs.oregonstate.edu/\textasciitilde azarbaam}
+%%&
+%%\textit{E-mail:} \email{amir@azarbakht.info}\\
+%%\textit{WWW:} \href{http://www.azarbakht.info/} {http://www.azarbakht.info}
+%%\href{http://research.engr.oregonstate.edu/hci/content/amir-azarbakht}{http://research.engr.oregonstate.edu/hci/content/amir-azarbakht}
+%} 
+%
+%\textit{LinkedIn:}  
+%\href{http://www.linkedin.com/profile/view?id=63719178}{http://www.linkedin.com/profile/view?id=63719178}
+%
+%%http://research.engr.oregonstate.edu/hci/content/amir-azarbakht
+%
+%\end{tabular}
+
+%%
+%% In modern CV's, it seems like ``Objective'' is frowned upon. Instead,
+%% incorporate it into a well-constructed cover letter. The ``More
+%% information'' can go at the end of the CV, but it should not distract
+%% from the section giving references available to contact.
+%%
+%
+% \section{Objective}
+%
+% Placement in an academic position (i.e., faculty, postdoctoral, or
+% research scientist) that allows for advanced research in distributed
+% complex adaptive systems (i.e., modeling, analysis, design, and
+% verification) with a particular focus on the control of engineered
+% agents (e.g., for communications, control, software, electronics, and
+% sustainability) and the analysis of biological phenomena (e.g.,
+% self-organization, ecological rationality)
+% \begin{innerlist}
+% \item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
+% \end{innerlist}
+%
+
+%\section{Research Interests}
+%Computer vision, Human-computer interaction, Object detection and recognition, Video analysis, activity recognition, Interaction design, Augmented reality, Tangible interfaces, Intelligent systems
+%
+%\section{Academic Appointments}
+%
+%\textbf{Postdoctoral Researcher} \hfill {September 2010 to present}
+%\begin{innerlist}
+%
+%    \item[] \href{http://www.cse.ohio-state.edu/}{Department of Computer Science and Engineering},
+%            \href{http://www.osu.edu/}{The Ohio State University}
+%    \begin{innerlist}
+%        \item \href{http://www.nfs.gov/}{National Science Foundation} Cyber-Physical Systems (ENG, \href{http://www.nsf.gov/div/index.jsp?div=eccs}{ECCS})
+%        \begin{innerlist}
+%            \item[$-$] ``Autonomous Driving in Mixed-Traffic Urban Environments''
+%                (grant~\href{http://www.nsf.gov/awardsearch/showAward.do?AwardNumber=0931669}{\#0931669})
+%            \item[$-$] Supervisor (co-PI):
+%                \href{http://www.cse.ohio-state.edu/~paolo/}%
+%                     {Professor Paolo A.~G.~Sivilotti}
+%            \item[$-$] PI:
+%                \href{http://www.ece.ohio-state.edu/~umit/}%
+%                     {Professor \"{U}mit \"{O}zg\"{u}ner}
+%        \end{innerlist}
+%    \end{innerlist}
+%
+%\end{innerlist}
+
+%
+%\section{Areas of Expertise}
+%\begin{innerlist}
+%\item Social Network Analysis (SNA)
+%\item Human-Computer Interaction (HCI)
+%
+%\end{innerlist}
+
+%
+%\section{Further Info}
+%Available on my webpage: \href{http://www.azarbakht.info/} {www.azarbakht.info}
+
+%\section{References}
+%Reference are available upon request
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------%
+% The following is copyright and licensing information for
+% redistribution of this LaTeX source code; it also includes a liability
+% statement. If this source code is not being redistributed to others,
+% it may be omitted. It has no effect on the function of the above code.
+%----------------------------------------------------------------------%
+% Copyright (c) 2007, 2008, 2009, 2010, 2011 by Theodore P. Pavlic
+%
+% Unless otherwise expressly stated, this work is licensed under the
+% Creative Commons Attribution-Noncommercial 3.0 United States License. To
+% view a copy of this license, visit
+% http://creativecommons.org/licenses/by-nc/3.0/us/ or send a letter to
+% Creative Commons, 171 Second Street, Suite 300, San Francisco,
+% California, 94105, USA.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+%----------------------------------------------------------------------%
