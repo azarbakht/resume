@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  31 JAN 2018 21:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  6 JAN 2018 11:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**resume__Emerson_A_Azarbakht.tex
-(./resume__Emerson_A_Azarbakht.tex
+**resume__Amirhosein_Emerson_Azarbakht_H1-B.tex
+(./resume__Amirhosein_Emerson_Azarbakht_H1-B.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -292,8 +292,8 @@ Package hyperref Info: Option `breaklinks' set `true' on input line 164.
 \enitdp@innerlist=\count121
 \enitdp@loneinnerlist=\count122
 
-(./resume__Emerson_A_Azarbakht.aux)
-\openout1 = `resume__Emerson_A_Azarbakht.aux'.
+(./resume__Amirhosein_Emerson_Azarbakht_H1-B.aux)
+\openout1 = `resume__Amirhosein_Emerson_Azarbakht_H1-B.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 318.
 LaTeX Font Info:    ... okay on input line 318.
@@ -375,9 +375,10 @@ LaTeX Info: Redefining \ref on input line 318.
 LaTeX Info: Redefining \pageref on input line 318.
 LaTeX Info: Redefining \nameref on input line 318.
 
-(./resume__Emerson_A_Azarbakht.out) (./resume__Emerson_A_Azarbakht.out)
+(./resume__Amirhosein_Emerson_Azarbakht_H1-B.out)
+(./resume__Amirhosein_Emerson_Azarbakht_H1-B.out)
 \@outlinefile=\write3
-\openout3 = `resume__Emerson_A_Azarbakht.out'.
+\openout3 = `resume__Amirhosein_Emerson_Azarbakht_H1-B.out'.
 
 \rcollength=\skip62
 \spacewidth=\skip63
@@ -450,11 +451,11 @@ AED: lastpage setting LastPage
 [2]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 805.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 805.
- (./resume__Emerson_A_Azarbakht.aux)
+ (./resume__Amirhosein_Emerson_Azarbakht_H1-B.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 805.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 805.
-Package rerunfilecheck Info: File `resume__Emerson_A_Azarbakht.out' has not cha
-nged.
+Package rerunfilecheck Info: File `resume__Amirhosein_Emerson_Azarbakht_H1-B.ou
+t' has not changed.
 (rerunfilecheck)             Checksum: CCB5AA76CE4EB98E5254867DE30E731F;281.
 
 
@@ -464,12 +465,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 805.
  ) 
 Here is how much of TeX's memory you used:
  6403 strings out of 494953
- 93755 string characters out of 6180977
+ 93937 string characters out of 6180977
  198775 words of memory out of 5000000
  9653 multiletter control sequences out of 15000+600000
  5908 words of font info for 21 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,10n,43p,571b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,10n,43p,585b,453s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
@@ -478,7 +479,8 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive
 dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmti7.pfb>
-Output written on resume__Emerson_A_Azarbakht.pdf (2 pages, 118011 bytes).
+Output written on resume__Amirhosein_Emerson_Azarbakht_H1-B.pdf (2 pages, 11912
+8 bytes).
 PDF statistics:
  87 PDF objects out of 1000 (max. 8388607)
  74 compressed objects within 1 object stream
